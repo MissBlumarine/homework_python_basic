@@ -1,1 +1,6 @@
-# Python Basic Homework
+### Python-Basic Homework
+
+#### Влад Светлана Викторовна
+
+- данный репозиторий создан для удобства и проверки домашних заданий 
+на курсе Python Developer Basic.
