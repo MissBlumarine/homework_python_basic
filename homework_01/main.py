@@ -12,11 +12,11 @@ def power_numbers(*numbers, power=2):
     >>> power_numbers(1, 2, 5, 7)
     <<< [1, 4, 25, 49]
     """
-    results = []
-    for i in numbers:
-        results.append(i ** power)
-    return print("<<<", results)
-
+    # results = []
+    # for i in numbers:
+    #     results.append(i ** power)
+    # return print("<<<", results)
+    return [number ** power for number in numbers]
 print(power_numbers(1,2,3,7))
 
 
@@ -27,17 +27,18 @@ PRIME = "prime"
 
 # Функция проверки является ли число простым
 
-def is_prime(num):
-    result = []
-    for n in num:
-        k = 0
-        for i in range(2, n // 2+1):
-            if (n % i == 0):
-                k += 1
-        if (k <= 0):
-            result.append(n)
-    return result
+def is_prime(n):
+    k = 0
+    for i in range(2, n // 2+1):
+        if (n % i == 0):
+            k += 1
+    if (k <= 0):
+        n = n
+    else:
+        n = None
+    return n
 
+is_prime(5)
 
 def filter_numbers(list_numbers, type):
     """
@@ -60,10 +61,9 @@ def filter_numbers(list_numbers, type):
             if number % 2 == 0:
                 result.append(number)
     if type == PRIME:
-        result = is_prime(list_numbers)
-        
-    return print("<<<", result)
+        result = list(filter(is_prime, list_numbers))
+    return result
 
-print(filter_numbers([1, 2, 3], PRIME))
+filter_numbers([1, 2, 3], PRIME)
 
-print(filter_numbers([2, 3, 4, 5], EVEN))
+filter_numbers([2, 3, 4, 5], EVEN)
