@@ -28,6 +28,10 @@ PRIME = "prime"
 # Функция проверки является ли число простым
 
 def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
     k = 0
     for i in range(2, n // 2+1):
         if (n % i == 0):
