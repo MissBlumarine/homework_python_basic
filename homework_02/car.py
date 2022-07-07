@@ -7,13 +7,12 @@ from homework_02.engine import Engine
 class Car(Vehicle):
 
     def __init__(self, weight, fuel, fuel_consumption, engine):
-        Vehicle.__init__(self, weight, fuel, fuel_consumption)
+        super().__init__(weight, fuel, fuel_consumption)
         self.engine = engine
 
-    def set_engine(self, engine):
-        """
-        не могу понять как наследовать от dataclass Engine
-        и как установить на car экземпляр engine"""
-        pass
+    def set_engine(self, volume, pistons):
+        self.volume = Engine.volume
+        self.pistons = Engine.pistons
+
 
 

@@ -13,19 +13,16 @@ class Vehicle(ABC):
         self.fuel = fuel
         self.fuel_consumption = fuel_consumption
 
-    def start(self, started, fuel):
-        if started == True:
-            return "Двигатель уже работает"
-        if started == False and fuel > 0:
-            started = True
-            return "Двигатель запущен"
-        if started == False and fuel <= 0:
-            raise LowFuelError('Внимание! Пустой бак')
+    def start(self):
+        if not self.started:
+            if self.fuel > 0:
+                self.started = True
+            else:
+                raise LowFuelError('Внимание! Пустой бак')
 
-    def move(self, distance, fuel, fuel_consumption):
-        d = distance / fuel_consumption
-        c = fuel - d
+    def move(self, distance):
+        d = distance / self.fuel_consumption
+        c = self.fuel - d
         if c >= 0:
             return c
-        if c < 0:
-            raise NotEnoughFuel('Внимание! Необходима дозаправка!')
+        raise NotEnoughFuel('Внимание! Необходима дозаправка!')
