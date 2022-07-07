@@ -25,4 +25,5 @@ class Vehicle(ABC):
         fuel = self.fuel - req_fuel
         if fuel >= 0:
             self.fuel = fuel
-        raise NotEnoughFuel('Внимание! Необходима дозаправка!')
+        else:
+            raise NotEnoughFuel('Внимание! Необходима дозаправка!')
