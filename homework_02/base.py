@@ -21,8 +21,8 @@ class Vehicle(ABC):
                 raise LowFuelError('Внимание! Пустой бак')
 
     def move(self, distance):
-        d = distance / self.fuel_consumption
-        c = self.fuel - d
+        max_distance = (self.fuel // self.fuel_consumption)*100
+        c = max_distance - distance
         if c >= 0:
             return c
         raise NotEnoughFuel('Внимание! Необходима дозаправка!')
