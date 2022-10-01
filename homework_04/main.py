@@ -15,7 +15,7 @@
 import asyncio
 
 from sqlalchemy.ext.asyncio import AsyncSession, AsyncEngine, create_async_engine
-from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.orm import sessionmaker
 
 import models
 from models import User, Post, Base
@@ -36,12 +36,12 @@ async_session = sessionmaker(
 async def create_tables():
     async with async_engine.begin() as conn:
         print("todo: drop all")
-        await conn.run_sync(models.Base.metadata.drop_all)
+        await conn.run_sync(Base.metadata.drop_all)
         print("todo: create all")
-        await conn.run_sync(models.Base.metadata.create_all)
+        await conn.run_sync(Base.metadata.create_all)
 
         print("created all")
-        await conn.run_sync(models.Base.metadata.create_all)
+        await conn.run_sync(Base.metadata.create_all)
 
 
 async def create_user(session: AsyncSession, username: str, name: str, email: str) -> User:
@@ -56,7 +56,7 @@ async def create_user(session: AsyncSession, username: str, name: str, email: st
 async def create_post(session: AsyncSession, user_id: int, title: str, body: str) -> Post:
     post = Post(user_id=user_id, title=title, body=body)
     session.add(post)
-    #await session.commit()
+    #  await session.commit()
 
     return post
 

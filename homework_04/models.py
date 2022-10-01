@@ -31,17 +31,16 @@ PG_CONN_URI = os.environ.get("SQLALCHEMY_PG_CONN_URI") or "postgresql+asyncpg://
 
 DB_ECHO = True
 
-
 async_engine: AsyncEngine = create_async_engine(
     PG_CONN_URI, echo=DB_ECHO
 )
-
 
 async_session = sessionmaker(
     async_engine,
     class_=AsyncSession,
     expire_on_commit=False
 )
+
 
 class Base:
     @declared_attr
@@ -92,6 +91,3 @@ class Post(TimestampMixin, Base):
                 f"body={self.body}), "
                 f"user_id={self.user_id}"
                 )
-
-
-
