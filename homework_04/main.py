@@ -45,7 +45,7 @@ async def create_tables():
 
 
 async def create_user(session: AsyncSession, username: str, name: str, email: str) -> User:
-    user = User(name=name, username=username, email=email)
+    user = User(username=username, name=name, email=email)
     session.add(user)
     # await session.commit()
     print(user)
@@ -68,8 +68,8 @@ async def run_create_tables(session: Session):
             for user in users_data:
                 await create_user(
                     session,
-                    user.get("name"),
                     user.get("username"),
+                    user.get("name"),
                     user.get("email")
                 )
 
