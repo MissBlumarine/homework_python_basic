@@ -53,7 +53,7 @@ async def create_user(session: AsyncSession, username: str, name: str, email: st
     return user
 
 
-async def create_post(session: Session, user_id: int, title: str, body: str) -> Post:
+async def create_post(session: AsyncSession, user_id: int, title: str, body: str) -> Post:
     post = Post(user_id=user_id, title=title, body=body)
     session.add(post)
     #  await session.commit()
