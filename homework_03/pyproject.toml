@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "homework-03"
+version = "0.1.0"
+description = ""
+authors = ["MissBlumarine <miss_blumarine01@mail.ru>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.9"
+uvicorn = "^0.18.3"
+fastapi = "^0.84.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
