@@ -26,7 +26,7 @@ async_engine: AsyncEngine = create_async_engine(
     echo=models.DB_ECHO,
 )
 
-async_session = sessionmaker(
+Session = sessionmaker(
     async_engine,
     class_=AsyncSession,
     expire_on_commit=False,
@@ -53,7 +53,7 @@ async def create_user(session: AsyncSession, username: str, name: str, email: st
     return user
 
 
-async def create_post(session: AsyncSession, user_id: int, title: str, body: str) -> Post:
+async def create_post(session: Session, user_id: int, title: str, body: str) -> Post:
     post = Post(user_id=user_id, title=title, body=body)
     session.add(post)
     #  await session.commit()
@@ -61,9 +61,9 @@ async def create_post(session: AsyncSession, user_id: int, title: str, body: str
     return post
 
 
-async def run_create_tables(session: async_session):
+async def run_create_tables(session: Session):
     users_data, posts_data = await get_users_posts()
-    async with async_session() as session:
+    async with Session() as session:
         async with session.begin():
             for user in users_data:
                 await create_user(
@@ -85,7 +85,7 @@ async def run_create_tables(session: async_session):
 
 async def async_main():
     await create_tables()
-    async with async_session() as session:
+    async with Session() as session:
         await run_create_tables(session)
 
 
