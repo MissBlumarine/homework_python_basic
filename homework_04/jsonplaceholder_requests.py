@@ -27,7 +27,7 @@ async def fetch_json(session: aiohttp.ClientSession, url: str) -> dict:
         return data
 
 
-async def fetch_data(service: Service) -> str | None:
+async def fetch_data(service: Service):
 
     async with aiohttp.ClientSession() as session:
         data: dict = await fetch_json(session, service.url)
