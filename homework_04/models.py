@@ -23,8 +23,8 @@ from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, create_async_engin
 
 from sqlalchemy.orm import declarative_base, declared_attr, relationship, sessionmaker
 
-# PG_CONN_URI = "postgresql+asyncpg://postgres:password@localhost:5432/postgres"
-PG_CONN_URI = "postgresql+asyncpg://username:passwd!@localhost:5432/blog"
+PG_CONN_URI = "postgresql+asyncpg://postgres:password@localhost/postgres"
+# PG_CONN_URI = "postgresql+asyncpg://username:passwd!@localhost:5432/blog"
 DB_ECHO = True
 
 
