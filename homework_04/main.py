@@ -83,11 +83,14 @@ async def run_create_tables(session: async_session):
     await session.commit()
 
 
-async def main():
+async def async_main():
     await create_tables()
     async with async_session() as session:
         await run_create_tables(session)
+        
+def main():
+    asyncio.run(async_main())
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
