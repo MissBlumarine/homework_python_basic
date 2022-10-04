@@ -66,7 +66,7 @@ class User(TimestampMixin, Base):
     username = Column(String(200), unique=True)
     email = Column(String(200), unique=True)
 
-    post = relationship("Post", back_populates="user")
+    posts = relationship("Post", back_populates="user")
 
     def __str__(self):
         return (
