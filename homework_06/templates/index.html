@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <style>
+    /*
+      html {
+        font-size: 22px;
+        background-color: lightgray;
+      }
+
+      body {
+        padding: 3em;
+      }
+
+     */
+
+    footer {
+      /*font-size: 80%;*/
+      font-size: 0.8em;
+      color: darkgray;
+    }
+  </style>
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/homepage.css') }}">
+{% endblock %}
+
+{% block title %}
+  Index page
+{% endblock %}
+
+{% block body %}
+  <div>
+    <h1> Дневник читателя</h1>
+    <p>
+      Этот демонстрационный сайт создан в учебных целях и для настоящих книголюбов, которым нравится сохранять важную
+      информацию о прочитанных книгах и наблюдать за статистикой своей читательской деятельности. Это мотивирует
+      к ежедневному чтению и будет полезно тем пользователям,
+      кто желает читать больше. Начните вести свой читательский дневник прямо сейчас!
+    </p>
+
+    <button
+      id="btn-click"
+      {#      onclick="handleClick()"#}
+      class="push-btn">
+      Click Me
+    </button>
+    <div style="margin-top: 10px;">
+      Clicked times: <span id="click-count" class="big-number">0</span>
+    </div>
+    <button id="counter-reset">Reset counter</button>
+  </div>
+
+{% endblock %}
