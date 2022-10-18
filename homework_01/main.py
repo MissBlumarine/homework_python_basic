@@ -5,7 +5,6 @@
 
 
 def power_numbers(*numbers, power=2):
-
     """
     функция, которая принимает N целых чисел,
     и возвращает список квадратов этих чисел
@@ -17,8 +16,9 @@ def power_numbers(*numbers, power=2):
     #     results.append(i ** power)
     # return print("<<<", results)
     return [number ** power for number in numbers]
-print(power_numbers(1,2,3,7))
 
+
+print(power_numbers(1, 2, 3, 7))
 
 # filter types
 ODD = "odd"
@@ -27,22 +27,30 @@ PRIME = "prime"
 
 # Функция проверки является ли число простым
 
+"""
+is docstring
+function is prime
+"""
+
+
 def is_prime(n):
     if n < 2:
         return False
     if n == 2:
         return True
     k = 0
-    for i in range(2, n // 2+1):
-        if (n % i == 0):
+    for i in range(2, n // 2 + 1):
+        if n % i == 0:
             k += 1
-    if (k <= 0):
+    if k <= 0:
         n = n
     else:
         n = None
     return n
 
+
 is_prime(5)
+
 
 def filter_numbers(list_numbers, type):
     """
@@ -67,6 +75,7 @@ def filter_numbers(list_numbers, type):
     if type == PRIME:
         result = list(filter(is_prime, list_numbers))
     return result
+
 
 filter_numbers([1, 2, 3], PRIME)
 
