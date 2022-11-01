@@ -3,13 +3,7 @@
 
 name: Django workflow
 
-on:
-  push:
-    branches:
-      - brach-1
-  pull_request:
-      branches:
-        - brach_1
+on: [push]
 
 permissions:
   contents: read
