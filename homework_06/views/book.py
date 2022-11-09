@@ -31,5 +31,5 @@ def add_book():
     db.session.commit()
 
     flash(f"Successfully added product {book.name}!")
-    url = url_for("books_app.details", book_id=book.id)
+    url = url_for("books_app.list", book_id=book.id)
     return redirect(url)
