@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Confirm delete book
+{% endblock %}
+
+{% block body %}
+  <h1>Delete book {{ book.name }}?</h1>
+  <p>Are you sure you want to delete book <code>{{ book.name }}</code>?</p>
+
+  <form method="post">
+    <a
+      class="btn btn-secondary"
+      href="{{ url_for('books_app.details', book_id=book.id) }}"
+    >
+      Cancel</a>
+    <button class="btn btn-danger">
+      Confirm delete
+    </button>
+  </form>
+{% endblock %}

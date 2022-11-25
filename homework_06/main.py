@@ -4,7 +4,7 @@ from os import getenv
 from flask_migrate import Migrate
 
 from models import db
-from views.book import books_app
+from views.books import books_app
 
 app = Flask(__name__)
 

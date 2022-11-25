@@ -30,7 +30,7 @@ def hello_world():
 @app.route("/about/", endpoint="about_book")
 def hello_world():
     print_request()
-    return render_template("book.html")
+    return render_template("books.html")
 
 
 def print_request():

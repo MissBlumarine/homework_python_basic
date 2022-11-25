@@ -6,13 +6,13 @@ from wtforms.validators import DataRequired, Length
 class CreateBookForm(FlaskForm):
     name = StringField(
         label="Book name",
-        name="book-name",
+        name="books-name",
         validators=[
             DataRequired(),
             Length(min=3, max=100),
         ],
     )
     is_new = BooleanField(
-        label="Is new book?",
+        label="Is new books?",
         default=False,
     )
